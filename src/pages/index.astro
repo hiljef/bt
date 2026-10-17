@@ -1,16 +1,41 @@
 ---
----
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle ="";
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+const artist = {
+  hj: "hilary jeffery",
+  ep: "eleni poulou",
+  or: "organza ray",
+  };
+
+const form = ["records", "tapes", "cds", "zines", "books", "digital", "websites"];
+
+const school = ["trombone", "trumpet", "euphonium", "poetry", "songwriting", "composition", "improvisation", "music theory", "arrangement"];
+
+const web = ["html", "css", "markdown", "javascript", "react"];
+---
+<BaseLayout pageTitle={pageTitle}>
+          <p><b>private studio + music school</b></p>
+                <p><b>home of</b></p>
+		            <ul>
+ 		                <li>{artist.hj}</li>
+ 		                 <li>{artist.ep}</li>
+ 		                 <li>{artist.or}</li>
+ 		            </ul>
+
+ 		        <p><b>producing + publishing</b></p>
+		                <ul>
+ 		                 {form.map((form) => <li>{form}</li>)}
+		                </ul>
+		                
+		        <p><b>teaching</b></p>
+		                <ul>
+ 		                 {school.map((school) => <li>{school}</li>)}
+		                </ul>
+			<!-- 
+		        <p><b>website being built with Astro using</b></p>
+		                <ul>
+ 		                {web.map((web) => <li>{web}</li>)}
+		                </ul>
+			-->
+</BaseLayout>
