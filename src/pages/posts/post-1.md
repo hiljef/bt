@@ -4,9 +4,6 @@ title: 'berlintune news'
 pubDate: 2026
 description: 'news'
 author: 'berlintune'
-image: 
-    url: 'https://hiljef.com/wp-content/uploads/2025/08/berlintune.png'
-    alt: 'berlintune'
 tags: ["astro", "blog", "news", "berlintune"]
 ---
 ## october 2026
