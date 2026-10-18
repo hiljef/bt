@@ -139,16 +139,16 @@ a:active {
 .nav-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.15rem;
+  gap: 0.1rem;
   margin: 0 0 0 1em;
 }
 
 .nav-links a {
   display: inline-block;
   text-align: center;
-  padding: 0.5rem 0.75rem;
+  padding: 0.15rem 0.5rem;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
   /* text-transform: uppercase; */
 }
