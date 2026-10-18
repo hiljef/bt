@@ -58,7 +58,7 @@ body {
 .email {
   width: auto;
   height: auto;
-  font-size: clamp(1rem, 5vw, 1rem);
+  font-size: clamp(0.5rem, 3vw, 0.7rem);
   font-family: monospace;
   padding: 7px;
   border: 0.5px solid rgb(195, 130, 201);
@@ -66,9 +66,10 @@ body {
 }
 
 .social {
-  width: 100%;
-  height: 100%;
+  width: auto;
+  height: auto;
   font-size: clamp(0.5rem, 3vw, 0.7rem);
+  font-family: monospace;
   padding: 7px;
   border: 0.5px solid rgba(8, 179, 56, 0.743);
   border-radius: 5px;
