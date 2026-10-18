@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const pageTitle = "about";
+const pageTitle = "info";
 
 const identity = {
   hj: "hilary jeffery",
@@ -35,25 +35,29 @@ const textCase = "uppercase";
     		text-transform: var(--textCase);
  	        }
 		</style>-->
-
-                <p><b>private studio + music school in berlin</b></p>
+		<div class="div2">
                 <p>who we are</p>
 		                <ul>
  		                    <li>{identity.hj} + {identity.ep}</li>
- 		                    <li>we live and work in {identity.city} where we compose and record {identity.act1}</li>
+ 		                    <li>we are based in in {identity.city} where we compose and record {identity.act1}</li>
   		                       {identity.prod.length >= 5 &&
     		                <li>our productions include: {identity.prod[0]}, {identity.prod[1]}, {identity.prod[2]}, {identity.prod[3]} and {identity.prod[4]}</li>
                              }
 		                </ul>
-
-		<p>we publish in the following formats</p>
-		<ul>
- 		 {form.map((form) => <li class="form">{form}</li>)}
-		</ul>
-
-		{collab && <p>we are open for creative collaborations</p>}
-		{teach && <p>we welcome new students</p>}
-		{contact && <p>contact: studio [at] berlintune [dot] com</p>}
-		{free && <p>we will work for free</p>}
+				 </div>
+				 <br>
+		 <div class="div3">
+				<p>producing and publishing</p>
+					<ul>
+ 		 				{form.map((form) => <li class="form">{form}</li>)}
+					</ul>
+		</div>
+		<br>
+			<div class="div4">
+				{collab && <p>we are open for creative collaborations</p>}
+				{teach && <p>we welcome new students</p>}
+				{contact && <p>contact: studio [at] berlintune [dot] com</p>}
+				{free && <p>we will work for free</p>}
 		<!-- {number === 3 ? <p>the studio is big enough for 3 people</p> : <p>the studio has no space</p>} -->
+		 </div>
 </BaseLayout>

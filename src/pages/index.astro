@@ -11,30 +11,28 @@ const form = ["records", "tapes", "cds", "zines", "books", "digital", "websites"
 
 const school = ["trombone", "trumpet", "euphonium", "poetry", "songwriting", "composition", "improvisation", "music theory", "arrangement"];
 
-const web = ["html", "css", "markdown", "javascript", "react"];
 ---
 <BaseLayout pageTitle={pageTitle}>
-          <p><b>private studio + music school</b></p>
-                <p><b>home of</b></p>
-		            <ul>
- 		                <li>{artist.hj}</li>
- 		                 <li>{artist.ep}</li>
- 		                 <li>{artist.or}</li>
- 		            </ul>
-
- 		        <p><b>producing + publishing</b></p>
-		                <ul>
- 		                 {form.map((form) => <li>{form}</li>)}
-		                </ul>
-		                
-		        <p><b>teaching</b></p>
-		                <ul>
- 		                 {school.map((school) => <li>{school}</li>)}
-		                </ul>
-			<!-- 
-		        <p><b>website being built with Astro using</b></p>
-		                <ul>
- 		                {web.map((web) => <li>{web}</li>)}
-		                </ul>
-			-->
+	 <div class="div2">
+		 <p><b>home of</b></p>
+		    <ul>
+ 		         <li>{artist.hj}</li>
+ 		         <li>{artist.ep}</li>
+ 		         <li>{artist.or}</li>
+ 		    </ul>
+	 </div>
+	 <br>
+     <div class="div3">
+ 		 <p><b>producing + publishing</b></p>
+		    <ul>
+ 		         {form.map((form) => <li>{form}</li>)}
+		     </ul>
+	 </div>  
+	 <br>
+	 <div class="div4">         
+		 <p><b>teaching</b></p>
+		     <ul>
+ 		         {school.map((school) => <li>{school}</li>)}
+		    </ul>
+		</div>  
 </BaseLayout>
