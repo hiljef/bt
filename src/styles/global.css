@@ -1,5 +1,5 @@
 html {
-  background-color: #1B1C21;
+  background-color: #242484f5;
   font-family: monospace, ui-monospace, SFMono-Regular, Menlo, Consolas;
   color-scheme: dark;
 }
@@ -78,7 +78,7 @@ body {
 .textart {
     font-size: clamp(1.1rem, 5vw, 1rem);
     font-family: monospace;
-    color: rgba(8, 179, 56, 0.743);
+    color: rgba(7, 255, 19, 0.644);
     white-space: pre; /* Preserve whitespace */
     text-align: left;
     overflow-x: auto;
