@@ -1,11 +1,12 @@
 html {
   background-color: #1B1C21;
   font-family: monospace, ui-monospace, SFMono-Regular, Menlo, Consolas;
+  color-scheme: dark;
 }
 
 h1 {
   margin: 1rem 0;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 6vw, 2rem);
   color: rgb(9, 172, 236);
 }
 
@@ -21,7 +22,7 @@ body {
 .div1 {
   width: auto;
   height: auto;
-  padding: 30px;
+  padding: clamp(0.75rem, 4vw, 30px);
   border: 1.3px solid rgba(90, 144, 236, 0.743);
   border-radius: 5px;
 }
@@ -51,11 +52,12 @@ body {
 }
 
 .textart {
-    font-size: 2vw; /* Adjust size based on viewport width */
+    font-size: clamp(0.4rem, 1.5vw, 0.9rem);
     font-family: monospace;
     color: rgba(8, 179, 56, 0.743);
     white-space: pre; /* Preserve whitespace */
     text-align: left;
+    overflow-x: auto;
 }
 
 * {
@@ -102,63 +104,83 @@ a:active {
 
 /* nav styles */
 .hamburger {
-  padding-right: 20px;
+  display: none;
+  padding: 0.5rem;
   cursor: pointer;
+  color: white;
+  background: transparent;
+  border: 0;
 }
 
 .hamburger .line {
   display: block;
   width: 30px;
   height: 5px;
-  margin-bottom: 10px;
+  margin: 0 0 6px;
   background-color: white;
 }
 
-.nav-links {
-  width: 100%;
-  top: 5rem;
-  left: 48px;
-  display: none;
-  margin: 0;
+.hamburger .line:last-child {
+  margin-bottom: 0;
 }
 
 .nav-links {
-  width: 100%;
-  top: 5rem;
-  left: 48px;
-  display: none;
-  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin: 0 0 0 1em;
 }
 
 .nav-links a {
-  display: block;
+  display: inline-block;
   text-align: center;
-  padding: 1px 0;
+  padding: 0.5rem 0.75rem;
   text-decoration: none;
   font-size: 1.2rem;
   font-weight: bold;
   /* text-transform: uppercase; */
 }
 
-.expanded {
-  display: unset;
+nav {
+  display: flex;
+  align-items: center;
 }
 
-@media screen and (min-width: 636px) {
-  .nav-links {
-    margin-left: 1em;
+@media screen and (max-width: 635px) {
+  nav {
+    flex-wrap: wrap;
+  }
+
+  body {
+    padding: 0.5rem;
+  }
+
+  .hamburger {
     display: block;
-    position: static;
-    width: auto;
-    background: none;
+  }
+
+  .nav-links {
+    display: none;
+    flex-basis: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    margin: 0;
   }
 
   .nav-links a {
-    display: inline-block;
-    padding: 9px 15px;
+    text-align: left;
+    padding: 0.4rem 0.75rem;
   }
 
-    .hamburger {
-    display: none;
+  .nav-links.expanded {
+    display: flex;
+  }
+
+  .textart {
+    font-size: clamp(0.35rem, 2.5vw, 0.65rem);
+  }
+
+  footer {
+    flex-wrap: wrap;
   }
 }  
