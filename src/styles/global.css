@@ -1,6 +1,6 @@
 html {
   background-color: #1B1C21;
-  font-family: sans-serif;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", "ascii.rest mono", monospace;
 }
 
 body {
@@ -30,9 +30,49 @@ body {
 
 .textart {
     font-size: 2vw; /* Adjust size based on viewport width */
-    color: white;
+    font-family: monospace;
+    color: green;
     white-space: pre; /* Preserve whitespace */
     text-align: left;
+}
+
+.container {
+  border: 2px solid #cccccc;
+  padding: 10px;
+  width: 20em; /* Container width */
+}
+
+.item {
+  width: fit-content; /* Adjusts to fit content */
+  background-color: #1B1C21;
+  padding: 5px;
+  margin-bottom: 1em;
+}
+
+.box {
+  border: 1px solid blue;
+}
+
+.content {
+  position: absolute;
+  top: 0; bottom: 0; right: 0; left: 0;  /* follow the parent's edges */
+  outline: thin dashed green;            /* just so you can see the box */
+}
+
+.ascii {
+    color: gray;
+    width: fit-content;
+    white-space: pre; /* Preserve whitespace */
+}
+
+.art {
+  margin: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", "ascii.rest mono", monospace;
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: 0;
+  white-space: pre;
+  font-variant-ligatures: none;
 }
 
 * {
@@ -62,7 +102,7 @@ a:visited {
 
 /* mouse over link */
 a:hover {
-  color: blue;
+  color: gray;
 }
 
 /* selected link */
@@ -100,7 +140,7 @@ a:active {
   text-decoration: none;
   font-size: 1.2rem;
   font-weight: bold;
- <!--  text-transform:  uppercase; -->
+  /* text-transform: uppercase; */
 }
 
 .nav-links a:hover,
@@ -112,7 +152,7 @@ a:active {
   display: unset;
 }
 
-@media screen and (min-width: 636px) {
+
   .nav-links {
     margin-left: 1em;
     display: block;
@@ -120,6 +160,7 @@ a:active {
     width: auto;
     background: none;
   }
+
 
   .nav-links a {
     display: inline-block;
@@ -129,5 +170,3 @@ a:active {
     .hamburger {
     display: none;
   }
-
-}

@@ -8,9 +8,9 @@ tags: ["astro", "blog", "news", "berlintune"]
 ---
 ## october 2026
 
-much music is being cooked in the **berlintune** kitchen!  
+more music is being cooked in the **berlintune** kitchen!  
 
-using ancient, vintage & modern instruments :)  
+using ancient, vintage & modern instruments &#128526;  
 
 old & new recordings are available at [Bandcamp](https://organzaray.bandcamp.com) + [Subvert](https://subvert.fm/or)
 
