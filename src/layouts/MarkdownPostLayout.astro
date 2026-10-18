@@ -6,7 +6,7 @@ const { frontmatter } = Astro.props;
 <meta charset="utf-8" />
 <hr>
 <p><em>{frontmatter.pubDate.toString().slice(0,10)}</em></p>
-<p><b>{frontmatter.description}</b> from <b>{frontmatter.author}</b></p>
+<p>{frontmatter.description} from {frontmatter.author}</p>
 <hr>
 <slot />
 </BaseLayout>

@@ -7,7 +7,7 @@ const identity = {
   ep: "eleni poulou",
   city: "berlin",
   act1: "music",
-  prod: ["songs", "improvisations", "texts", "collages", "radio plays"],
+  crea: ["songs", "improvisations", "texts", "collages", "radio shows"],
 };
 
 const form = ["records", "tapes", "cds", "zines", "books", "digital", "websites"];
@@ -24,30 +24,19 @@ const textCase = "uppercase";
 ---
 <BaseLayout pageTitle={pageTitle}>
 
-	<!-- <style is:global define:vars={{formColor, fontWeight, textCase}}>
- 		 h1 {
-    		color: blue;
-    		font-size: 2rem;
- 		 }
-		.form {
-	        color: var(--formColor);
-    		font-weight: var(--fontWeight);
-    		text-transform: var(--textCase);
- 	        }
-		</style>-->
 		<div class="div2">
-                <p>who we are</p>
+                <p><b>organza ray</b> | <b>rayanza records</b></p>
 		                <ul>
- 		                    <li>{identity.hj} + {identity.ep}</li>
- 		                    <li>we are based in in {identity.city} where we compose and record {identity.act1}</li>
-  		                       {identity.prod.length >= 5 &&
-    		                <li>our productions include: {identity.prod[0]}, {identity.prod[1]}, {identity.prod[2]}, {identity.prod[3]} and {identity.prod[4]}</li>
+ 		                    <li><a href="https://hiljef.com" target="blank">{identity.hj}</a> + <a href="https://instagram.com/eleni.poulou" target="blank">{identity.ep}</a> </li>
+ 		                    <li>based in {identity.city} | composing + recording {identity.act1}</li>
+  		                       {identity.crea.length >= 5 &&
+    		                <li>{identity.crea[0]}, {identity.crea[1]}, {identity.crea[2]}, {identity.crea[3]}, {identity.crea[4]}</li>
                              }
 		                </ul>
 				 </div>
 				 <br>
 		 <div class="div3">
-				<p>producing and publishing</p>
+				<p>producing + publishing</p>
 					<ul>
  		 				{form.map((form) => <li class="form">{form}</li>)}
 					</ul>
@@ -56,7 +45,7 @@ const textCase = "uppercase";
 			<div class="div4">
 				{collab && <p>we are open for creative collaborations</p>}
 				{teach && <p>we welcome new students</p>}
-				{contact && <p>contact: studio [at] berlintune [dot] com</p>}
+				{contact && <p>contact us via email</p>}
 				{free && <p>we will work for free</p>}
 		<!-- {number === 3 ? <p>the studio is big enough for 3 people</p> : <p>the studio has no space</p>} -->
 		 </div>

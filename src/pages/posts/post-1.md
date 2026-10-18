@@ -2,17 +2,17 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 title: 'berlintune news'
 pubDate: 2026
-description: 'news'
-author: 'berlintune'
+description: 'update'
+author: 'the studio'
 tags: ["astro", "blog", "news", "berlintune"]
 ---
-## october 2026
+## music in progress
 
-more music is being cooked in the **berlintune** kitchen!  
+we are working on new music
 
-using ancient, vintage & modern instruments  
+using ancient, vintage & modern instruments 
 
 old & new recordings are available at [Bandcamp](https://organzaray.bandcamp.com) + [Subvert](https://subvert.fm/or)
 
-### back to [news](/news/) page
+### back <b>[⤶](/news/)</b>
 
