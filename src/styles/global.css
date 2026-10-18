@@ -22,7 +22,7 @@ body {
 .div1 {
   width: auto;
   height: auto;
-  font-size: clamp(0.4rem, 1.5vw, 0.9rem);
+  font-size: clamp(1rem, 5vw, 1rem);
   padding: clamp(0.75rem, 4vw, 30px);
   border: 1.3px solid rgba(90, 144, 236, 0.743);
   border-radius: 5px;
@@ -31,16 +31,16 @@ body {
 .div2 {
   width: auto;
   height: auto;
-  font-size: clamp(0.4rem, 1.5vw, 0.9rem);
+  font-size: clamp(1rem, 5vw, 1rem);
   padding: 10px;
   border: 0.5px solid rgb(195, 130, 201);
   border-radius: 5px;
 }
 
 .div3 {
-  width: auto;
-  height: auto;
-  font-size: clamp(0.4rem, 1.5vw, 0.9rem);
+  width: 100%;
+  height: 100%;
+  font-size: clamp(1rem, 5vw, 1rem);
   padding: 10px;
   border: 0.5px solid rgba(8, 179, 56, 0.743);
   border-radius: 5px;
@@ -49,7 +49,7 @@ body {
 .div4 {
   width: auto;
   height: auto;
-  font-size: clamp(0.4rem, 1.5vw, 0.9rem);
+  font-size: clamp(1rem, 5vw, 1rem);
   padding: 10px;
   border: 0.5px solid rgba(124, 191, 213, 0.941);
   border-radius: 5px;
@@ -58,7 +58,7 @@ body {
 .email {
   width: auto;
   height: auto;
-  font-size: clamp(0.4rem, 1.5vw, 0.9rem);
+  font-size: clamp(1rem, 5vw, 1rem);
   font-family: monospace;
   padding: 7px;
   border: 0.5px solid rgb(195, 130, 201);
@@ -66,7 +66,7 @@ body {
 }
 
 .textart {
-    font-size: clamp(0.4rem, 1.5vw, 0.9rem);
+    font-size: clamp(1rem, 5vw, 1rem);
     font-family: monospace;
     color: rgba(8, 179, 56, 0.743);
     white-space: pre; /* Preserve whitespace */
