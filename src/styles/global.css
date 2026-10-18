@@ -22,6 +22,7 @@ body {
 .div1 {
   width: auto;
   height: auto;
+  font-size: clamp(0.4rem, 1.5vw, 0.9rem);
   padding: clamp(0.75rem, 4vw, 30px);
   border: 1.3px solid rgba(90, 144, 236, 0.743);
   border-radius: 5px;
@@ -30,6 +31,7 @@ body {
 .div2 {
   width: auto;
   height: auto;
+  font-size: clamp(0.4rem, 1.5vw, 0.9rem);
   padding: 10px;
   border: 0.5px solid rgb(195, 130, 201);
   border-radius: 5px;
@@ -38,6 +40,7 @@ body {
 .div3 {
   width: auto;
   height: auto;
+  font-size: clamp(0.4rem, 1.5vw, 0.9rem);
   padding: 10px;
   border: 0.5px solid rgba(8, 179, 56, 0.743);
   border-radius: 5px;
@@ -46,8 +49,19 @@ body {
 .div4 {
   width: auto;
   height: auto;
+  font-size: clamp(0.4rem, 1.5vw, 0.9rem);
   padding: 10px;
   border: 0.5px solid rgba(124, 191, 213, 0.941);
+  border-radius: 5px;
+}
+
+.email {
+  width: auto;
+  height: auto;
+  font-size: clamp(0.4rem, 1.5vw, 0.9rem);
+  font-family: monospace;
+  padding: 7px;
+  border: 0.5px solid rgb(195, 130, 201);
   border-radius: 5px;
 }
 
@@ -105,7 +119,7 @@ a:active {
 /* nav styles */
 .hamburger {
   display: none;
-  padding: 0.5rem;
+  padding: 0.3rem;
   cursor: pointer;
   color: white;
   background: transparent;
@@ -115,8 +129,8 @@ a:active {
 .hamburger .line {
   display: block;
   width: 30px;
-  height: 5px;
-  margin: 0 0 6px;
+  height: 3px;
+  margin: 0 0 4px;
   background-color: white;
 }
 
@@ -127,7 +141,7 @@ a:active {
 .nav-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.25rem;
+  gap: 0.15rem;
   margin: 0 0 0 1em;
 }
 
