@@ -10,7 +10,7 @@ tags: ["astro", "blog", "news", "berlintune"]
 
 more music is being cooked in the **berlintune** kitchen!  
 
-using ancient, vintage & modern instruments &#128526;  
+using ancient, vintage & modern instruments  
 
 old & new recordings are available at [Bandcamp](https://organzaray.bandcamp.com) + [Subvert](https://subvert.fm/or)
 
