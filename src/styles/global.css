@@ -65,6 +65,15 @@ body {
   border-radius: 5px;
 }
 
+.social {
+  width: 100%;
+  height: 100%;
+  font-size: clamp(0.5rem, 3vw, 0.7rem);
+  padding: 7px;
+  border: 0.5px solid rgba(8, 179, 56, 0.743);
+  border-radius: 5px;
+}
+
 .textart {
     font-size: clamp(1rem, 5vw, 1rem);
     font-family: monospace;
