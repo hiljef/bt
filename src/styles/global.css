@@ -140,10 +140,6 @@ a:active {
   /* text-transform: uppercase; */
 }
 
-.nav-links a:hover,
-.nav-links a:focus {
-}
-
 .expanded {
   display: unset;
 }
