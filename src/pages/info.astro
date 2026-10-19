@@ -10,7 +10,15 @@ const identity = {
   crea: ["songs", "improvisations", "texts", "collages", "radio shows"],
 };
 
+const artist = {
+  hj: "hilary jeffery",
+  ep: "eleni poulou",
+  or: "organza ray",
+  };
+
 const form = ["records", "tapes", "cds", "zines", "books", "digital", "websites"];
+
+const school = ["trombone", "trumpet", "euphonium", "poetry", "songwriting", "composition", "improvisation", "music theory", "arrangement"];
 
 const collab = true;
 const contact = true;
@@ -23,8 +31,7 @@ const fontWeight = "bold";
 const textCase = "uppercase";
 ---
 <BaseLayout pageTitle={pageTitle}>
-
-		<div class="div2">
+             <div class="div2">
                 <p><b>organza ray</b> | <b>rayanza records</b></p>
 		                <ul>
  		                    <li><a href="https://hiljef.com" target="blank">{identity.hj}</a></li>
@@ -36,14 +43,21 @@ const textCase = "uppercase";
 		                </ul>
 				 </div>
 				 <br>
-		 <div class="div3">
+		     <div class="div3">
 				<p>producing + publishing</p>
 					<ul>
  		 				{form.map((form) => <li class="form">{form}</li>)}
 					</ul>
-		</div>
+		 </div>
+		 <br>
+	     <div class="div4">         
+		 <p><b>teaching</b></p>
+		     <ul>
+ 		         {school.map((school) => <li>{school}</li>)}
+		    </ul>
+		</div>  
 		<br>
-			<div class="div4">
+			<div class="div5">
 				{collab && <p>we are open for creative collaborations</p>}
 				{teach && <p>we welcome new students</p>}
 				{contact && <p>contact us via email</p>}

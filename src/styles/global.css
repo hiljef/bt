@@ -33,7 +33,7 @@ body {
   height: auto;
   font-size: clamp(1rem, 5vw, 1rem);
   padding: 10px;
-  border: 0.5px solid rgb(195, 130, 201);
+  border: 0.5px solid rgb(211, 100, 221);
   border-radius: 5px;
 }
 
@@ -51,7 +51,16 @@ body {
   height: auto;
   font-size: clamp(1rem, 5vw, 1rem);
   padding: 10px;
-  border: 0.5px solid rgba(124, 191, 213, 0.941);
+  border: 0.5px solid rgba(63, 144, 237, 0.858);
+  border-radius: 5px;
+}
+
+.div5 {
+  width: auto;
+  height: auto;
+  font-size: clamp(1rem, 5vw, 1rem);
+  padding: 10px;
+  border: 0.5px solid rgba(222, 234, 231, 0.941);
   border-radius: 5px;
 }
 

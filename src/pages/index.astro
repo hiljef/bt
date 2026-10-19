@@ -1,11 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+import { Image } from 'astro:assets';
+import fl2 from '../assets/fake_lake_2.jpg';
+
 const pageTitle ="";
-const artist = {
-  hj: "hilary jeffery",
-  ep: "eleni poulou",
-  or: "organza ray",
-  };
 
 const form = ["records", "tapes", "cds", "zines", "books", "digital", "websites"];
 
@@ -15,26 +14,17 @@ const school = ["trombone", "trumpet", "euphonium", "poetry", "songwriting", "co
 <BaseLayout pageTitle={pageTitle}>
 	 <div class="div2">
 		 <p><b>berlintune studio</b></p>
-		 <!--
-		    <ul>
- 		         <li>{artist.hj}</li>
- 		         <li>{artist.ep}</li>
- 		         <li>{artist.or}</li>
- 		    </ul>
-	     -->
 	 </div>
 	 <br>
-     <div class="div3">
- 		 <p><b>producing + publishing</b></p>
-		    <ul>
- 		         {form.map((form) => <li>{form}</li>)}
-		     </ul>
+	 <div class="div3">
+		 <p>
+		 <b>latest release</b>
+		 <br><br>
+		 <b>Organza Ray</b> - <b>"Fake Lake"</b> (2026)
+		 </p>
+		 <a href="https://organzaray.bandcamp.com/album/fake-lake-ep" target="blank">
+		 <Image src={fl2} alt="fake_lake" layout='constrained' width={300} height={300} /> 
+		</a>
+		 <br> 
 	 </div>  
-	 <br>
-	 <div class="div4">         
-		 <p><b>teaching</b></p>
-		     <ul>
- 		         {school.map((school) => <li>{school}</li>)}
-		    </ul>
-		</div>  
 </BaseLayout>
