@@ -90,6 +90,12 @@ const releases = [
     width: 100%;
     height: 100%;
     object-fit: contain;
+    transition: transform 180ms ease;
+  }
+
+  .release-artwork:hover :global(img),
+  .release-artwork:focus-visible :global(img) {
+    transform: scale(1.035);
   }
 
   .listen-label {
@@ -149,6 +155,7 @@ const releases = [
   }
 
   @media (prefers-reduced-motion: reduce) {
+    .release-artwork :global(img),
     .listen-label {
       transition: none;
     }

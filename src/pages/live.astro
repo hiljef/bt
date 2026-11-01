@@ -18,6 +18,7 @@ const events = [
     linkLabel: 'BUY TIKCETS',
   },
   {
+    year: 2026,
     date: 'Saturday 31 October',
     time: '17:00',
     title: 'Organza Ray\n+ friends',
@@ -28,49 +29,68 @@ const events = [
     linkLabel: 'more info',
   },
 ];
+const eventYears = [...new Set(events.map((event) => event.year))].sort((a, b) => b - a);
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <section class="events" aria-label="Upcoming events">
-    {events.map((event) => (
-      <article class="event">
-        <div class="event-image">
-          <Image
-            src={event.image}
-            alt={event.imageAlt}
-            width={event.image.width}
-            height={event.image.height}
-            layout="constrained"
-          />
+  <div class="event-years" aria-label="Events by year">
+    {eventYears.map((year) => (
+      <section class="event-year" aria-labelledby={`events-${year}`}>
+        <h2 class="event-year-title" id={`events-${year}`}>{year}</h2>
+        <div class="events">
+          {events.filter((event) => event.year === year).map((event) => (
+            <article class="event">
+              <div class="event-image">
+                <Image
+                  src={event.image}
+                  alt={event.imageAlt}
+                  width={event.image.width}
+                  height={event.image.height}
+                  layout="constrained"
+                />
+              </div>
+              <div class="event-details">
+                <dl class="event-when">
+                  <div>
+                    <dt>Date</dt>
+                    <dd>{event.date}</dd>
+                  </div>
+                  <div>
+                    <dt>Time</dt>
+                    <dd><time>{event.time}</time></dd>
+                  </div>
+                </dl>
+                <h2>{event.title}</h2>
+                <div class="event-section venue">
+                  <h3>Venue</h3>
+                  <address>
+                    {event.venue.map((line) => <span>{line}</span>)}
+                  </address>
+                </div>
+                <a class="event-link" href={event.href} target="_blank" rel="noopener noreferrer">
+                  {event.linkLabel} ↗
+                </a>
+              </div>
+            </article>
+          ))}
         </div>
-        <div class="event-details">
-          <dl class="event-when">
-            <div>
-              <dt>Date</dt>
-              <dd>{event.date}</dd>
-            </div>
-            <div>
-              <dt>Time</dt>
-              <dd><time>{event.time}</time></dd>
-            </div>
-          </dl>
-          <h2>{event.title}</h2>
-          <div class="event-section venue">
-            <h3>Venue</h3>
-            <address>
-              {event.venue.map((line) => <span>{line}</span>)}
-            </address>
-          </div>
-          <a class="event-link" href={event.href} target="_blank" rel="noopener noreferrer">
-            {event.linkLabel} ↗
-          </a>
-        </div>
-      </article>
+      </section>
     ))}
-  </section>
+  </div>
 </BaseLayout>
 
 <style>
+  .event-years {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .event-year-title {
+    margin: 0 0 0.75rem;
+    font-size: 1.25rem;
+  }
+
   .events {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -97,6 +117,11 @@ const events = [
     width: 100%;
     height: 100%;
     object-fit: contain;
+    transition: transform 180ms ease;
+  }
+
+  .event-image:hover :global(img) {
+    transform: scale(1.035);
   }
 
   .event-details {
@@ -161,6 +186,12 @@ const events = [
   .event-link:focus-visible {
     outline: 2px solid rgb(9, 172, 236);
     outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .event-image :global(img) {
+      transition: none;
+    }
   }
 
   @media (max-width: 760px) {
