@@ -73,6 +73,25 @@ body {
   border-radius: 5px;
 }
 
+.div7 {
+  width: auto;
+  height: auto;
+  font-size: clamp(1rem, 5vw, 1rem);
+  padding: 10px;
+  border: 0.5px solid rgba(134, 235, 218, 0.839);
+  border-radius: 5px;
+}
+
+.live {
+  width: auto;
+  height: auto;
+  font-size: clamp(0.7rem, 4vw, 0.8rem);
+  font-family: monospace;
+  padding: 7px;
+  border: 0.5px solid rgb(227, 177, 67);
+  border-radius: 5px;
+}
+
 .email {
   width: auto;
   height: auto;
@@ -130,6 +149,21 @@ a:hover {
 /* selected link */
 a:active {
   color: white;
+}
+
+img {
+  transition: transform 180ms ease;
+}
+
+img:hover,
+a:focus-visible img {
+  transform: scale(1.035);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  img {
+    transition: none;
+  }
 }
 
 /* nav styles */

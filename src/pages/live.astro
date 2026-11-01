@@ -1,0 +1,177 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import k19 from '../assets/K19_2.jpg';
+import ramor from '../assets/ramleh_3_dec.jpeg';
+
+const pageTitle = 'live';
+const events = [
+  {
+    year: 2026,
+    date: 'Thursday 3 December',
+    time: '19:00',
+    title: 'RAMLEH\nOrganza Ray\nKleistwahr',
+    image: ramor,
+    imageAlt: 'ramleh',
+    venue: ['The Underworld', '174 Camden High St', 'London NW1 9DL'],
+    href: 'https://www.theunderworldcamden.co.uk/event/ramleh-3rd-dec-the-underworld-london-tickets/',
+    linkLabel: 'BUY TIKCETS',
+  },
+  {
+    date: 'Saturday 31 October',
+    time: '17:00',
+    title: 'Organza Ray\n+ friends',
+    image: k19,
+    imageAlt: 'K19 Studios',
+    venue: ['K19 Studios', 'Wasgen Straße 75', 'HAUS 19', '14129 Berlin-Zehlendorf'],
+    href: 'https://k19studiosberlin.de/veranstaltungen',
+    linkLabel: 'more info',
+  },
+];
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <section class="events" aria-label="Upcoming events">
+    {events.map((event) => (
+      <article class="event">
+        <div class="event-image">
+          <Image
+            src={event.image}
+            alt={event.imageAlt}
+            width={event.image.width}
+            height={event.image.height}
+            layout="constrained"
+          />
+        </div>
+        <div class="event-details">
+          <dl class="event-when">
+            <div>
+              <dt>Date</dt>
+              <dd>{event.date}</dd>
+            </div>
+            <div>
+              <dt>Time</dt>
+              <dd><time>{event.time}</time></dd>
+            </div>
+          </dl>
+          <h2>{event.title}</h2>
+          <div class="event-section venue">
+            <h3>Venue</h3>
+            <address>
+              {event.venue.map((line) => <span>{line}</span>)}
+            </address>
+          </div>
+          <a class="event-link" href={event.href} target="_blank" rel="noopener noreferrer">
+            {event.linkLabel} ↗
+          </a>
+        </div>
+      </article>
+    ))}
+  </section>
+</BaseLayout>
+
+<style>
+  .events {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(0.75rem, 2vw, 1.25rem);
+  }
+
+  .event {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid rgba(5, 239, 24, 0.852);
+    border-radius: 5px;
+    background: rgba(227, 177, 67, 0.04);
+  }
+
+  .event-image {
+    aspect-ratio: 1;
+    overflow: hidden;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .event-image :global(img) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .event-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.85rem;
+    padding: 0.95rem;
+  }
+
+  .event-when {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    margin: 0;
+  }
+
+  .event-when dt,
+  .event-section h3 {
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.75rem;
+    font-weight: normal;
+    text-transform: uppercase;
+  }
+
+  .event-when dd {
+    margin: 0;
+    font-size: 0.875rem;
+  }
+
+  .event-details h2 {
+    white-space: pre-line;
+    margin: 0.5;
+    font-size: 1rem;
+  }
+
+  .event-section {
+    width: 100%;
+  }
+
+  .event-section h3 {
+    margin: 0 0 0.25rem;
+  }
+
+  .venue address {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+    font-style: normal;
+  }
+
+  .event-link {
+    display: inline-block;
+    margin-top: auto;
+    padding: 0.4rem 0.6rem;
+    border: 1px solid rgba(227, 177, 67, 0.75);
+    border-radius: 3px;
+    font-size: 0.8rem;
+    text-decoration: none;
+  }
+
+  .event-link:focus-visible {
+    outline: 2px solid rgb(9, 172, 236);
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 760px) {
+    .events {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 480px) {
+    .events {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>
