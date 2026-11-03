@@ -308,7 +308,7 @@ const eventYears = [...new Set(events.map((event) => event.year))].sort((a, b) =
   }
 
   .events:has(> .event:only-child) {
-    grid-template-columns: min(100%, 20rem);
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 11rem), 1fr));
   }
 
   .event {
