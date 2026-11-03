@@ -307,6 +307,10 @@ const eventYears = [...new Set(events.map((event) => event.year))].sort((a, b) =
     font-size: 1.25rem;
   }
 
+  .events:has(> .event:only-child) {
+    grid-template-columns: min(100%, 20rem);
+  }
+
   .event {
     min-width: 0;
     overflow: hidden;
