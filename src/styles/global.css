@@ -125,6 +125,12 @@ body {
   box-sizing: border-box;
 }
 
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+}
+
 a {
   color: black;
   font-weight: bold;
