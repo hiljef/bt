@@ -121,6 +121,19 @@ body {
     overflow-x: auto;
 }
 
+.textart:hover {
+    color: rgb(211, 100, 221);
+}
+
+.textart a:link,
+.textart a:visited,
+.textart a:hover,
+.textart a:active {
+    color: inherit;
+    font: inherit;
+    text-decoration: none;
+}
+
 * {
   box-sizing: border-box;
 }
