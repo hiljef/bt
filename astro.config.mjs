@@ -6,6 +6,7 @@ import { copyFile, readdir } from 'node:fs/promises';
 
 export default defineConfig({
   site: 'https://berlintune.com',
+  output: 'server',
   adapter: node({ mode: 'standalone' }),
   integrations: [
     sitemap(),
