@@ -248,13 +248,13 @@ const events = [
 const eventYears = [...new Set(events.map((event) => event.year))].sort((a, b) => b - a);
 ---
 
-<BaseLayout pageTitle={pageTitle} description="Live performances by Organza Ray, Eleni Poulou, Hilary Jeffery and collaborators.">
+<BaseLayout pageTitle={pageTitle} seoTitle="Live Music and Events" description="Live performances by Organza Ray, Eleni Poulou, Hilary Jeffery and collaborators.">
   <div class="event-years" aria-label="Events by year">
     {eventYears.map((year) => (
       <section class="event-year" aria-labelledby={`events-${year}`}>
         <h2 class="event-year-title" id={`events-${year}`}>{year}</h2>
         <div class="responsive-grid events">
-          {events.filter((event) => event.year === year).map((event) => (
+          {events.filter((event) => event.year === year).map((event, index) => (
             <article class="event">
               <div class="event-image">
                 <Image
@@ -263,6 +263,7 @@ const eventYears = [...new Set(events.map((event) => event.year))].sort((a, b) =
                   width={event.image.width}
                   height={event.image.height}
                   layout="constrained"
+                  loading={year === eventYears[0] && index < 2 ? 'eager' : 'lazy'}
                 />
               </div>
               <div class="event-details">
@@ -276,9 +277,9 @@ const eventYears = [...new Set(events.map((event) => event.year))].sort((a, b) =
                     <dd><time>{event.time}</time></dd>
                   </div>
                 </dl>
-                <h2>{event.title}</h2>
+                <h3>{event.title}</h3>
                 <div class="event-section venue">
-                  <h3>Venue</h3>
+                  <h4>Venue</h4>
                   <address>
                     {event.venue.map((line) => <span>{line}</span>)}
                   </address>
@@ -354,7 +355,7 @@ const eventYears = [...new Set(events.map((event) => event.year))].sort((a, b) =
   }
 
   .event-when dt,
-  .event-section h3 {
+  .event-section h4 {
     color: rgba(255, 255, 255, 0.68);
     font-size: 0.75rem;
     font-weight: normal;
@@ -366,7 +367,7 @@ const eventYears = [...new Set(events.map((event) => event.year))].sort((a, b) =
     font-size: 0.875rem;
   }
 
-  .event-details h2 {
+  .event-details h3 {
     white-space: pre-line;
     margin: 0.5;
     font-size: 1rem;
@@ -376,7 +377,7 @@ const eventYears = [...new Set(events.map((event) => event.year))].sort((a, b) =
     width: 100%;
   }
 
-  .event-section h3 {
+  .event-section h4 {
     margin: 0 0 0.25rem;
   }
 

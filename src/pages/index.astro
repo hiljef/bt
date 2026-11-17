@@ -68,7 +68,8 @@ const structuredData = {
 	 <script slot="head" type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 	 <link slot="head" rel="alternate" type="text/markdown" href="/index.md" />
 	 <div class="div2">
-		 <p><b>berlintune studio</b></p>
+		 <h1>berlintune studio</h1>
+		 <p>Berlin-based music studio for producing, publishing, teaching and creative collaborations.</p>
 	 </div>
 	 <script is:inline>
 	   if (navigator.modelContext) {
@@ -94,8 +95,16 @@ const structuredData = {
 		 "Fake Lake"
 		 </p>
 		 <a href="https://organzaray.bandcamp.com/album/fake-lake-ep" target="blank">
-		 <Image src={fl2} alt="fake_lake" layout='constrained' width={200} height={200} /> 
+		 <Image src={fl2} alt="Fake Lake by Organza Ray cover artwork" layout='constrained' width={200} height={200} />
 		 </a>	 
 	 </div>
 	       
 </BaseLayout>
+
+<style>
+  .div2 h1 {
+    color: inherit;
+    font-size: inherit;
+    margin: 1em 0;
+  }
+</style>

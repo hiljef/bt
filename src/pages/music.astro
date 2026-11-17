@@ -13,27 +13,27 @@ const releases = [
     title: 'Fake Lake',
     href: 'https://organzaray.bandcamp.com/album/fake-lake-ep',
     artwork: fl1,
-    alt: 'Fake Lake',
+    alt: 'Fake Lake by Organza Ray cover artwork',
   },
   {
     artist: 'Organza Ray\nAndi Toma',
     title: 'Fake Lake\n(I\'m On My Way)',
     href: 'https://organzaray.bandcamp.com/track/fake-lake-im-on-my-way',
     artwork: fl2,
-    alt: 'Fake Lake 2',
+    alt: "Fake Lake (I'm On My Way) by Organza Ray and Andi Toma cover artwork",
   },
   {
     artist: 'Organza Ray\nOscar Wyers',
     title: 'Frulian Zwiefach Switch',
     href: 'https://organzaray.bandcamp.com/album/frulian-zweifach-switch',
     artwork: fzs,
-    alt: 'Frulian Zwiefach Switch',
+    alt: 'Frulian Zwiefach Switch by Organza Ray and Oscar Wyers cover artwork',
   },
 
 ];
 ---
 
-<BaseLayout pageTitle={pageTitle} description="Explore music releases by Organza Ray and collaborators.">
+<BaseLayout pageTitle={pageTitle} seoTitle="Music Releases by Organza Ray" description="Explore music releases by Organza Ray and collaborators.">
   <section class="responsive-grid discography" aria-label="Discography">
     {releases.map((release) => (
       <article class="release">

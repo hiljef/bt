@@ -56,6 +56,31 @@ test('discovery files, sitemap pages and metadata are served', async () => {
   }
 });
 
+test('pages expose consistent SEO metadata and meaningful headings', async () => {
+  const paths = ['/', '/info/', '/music/', '/live/', '/news/', '/legal/', '/posts/post-1/'];
+  const titles = new Set();
+  for (const path of paths) {
+    const html = await (await fetch(base + path)).text();
+    const title = html.match(/<title>([^<]+)<\/title>/)[1];
+    titles.add(title);
+    assert.match(html, /<h1(?:\s[^>]*)?>\s*[^<\s][^<]*<\/h1>/);
+    assert.ok(html.includes(`property="og:title" content="${title}"`));
+    assert.ok(html.includes(`property="og:url" content="https://berlintune.com${path}"`));
+    assert.match(html, /property="og:description" content="[^"]+"/);
+    assert.match(html, /name="twitter:card" content="summary"/);
+  }
+  assert.equal(titles.size, paths.length);
+
+  const home = await (await fetch(base)).text();
+  assert.match(home, /<h1[^>]*>berlintune studio<\/h1>/);
+  assert.match(home, /alt="Fake Lake by Organza Ray cover artwork"/);
+  const music = await (await fetch(`${base}/music`)).text();
+  assert.match(music, /rel="canonical" href="https:\/\/berlintune\.com\/music\/"/);
+  const live = await (await fetch(`${base}/live/`)).text();
+  assert.match(live, /loading="lazy"/);
+  assert.match(live, /<h4(?:\s[^>]*)?>Venue<\/h4>/, 'event venues should follow event headings');
+});
+
 test('homepage negotiates Markdown and exposes structured data and WebMCP', async () => {
   const htmlResponse = await fetch(base);
   assert.match(htmlResponse.headers.get('link'), /\/llms\.txt/);

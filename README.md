@@ -51,6 +51,10 @@ The sitemap is generated during the build. Update `public/llms.txt` and
 content-use preference is recorded in `public/robots.txt` and on `/legal/`; keep
 them consistent if the policy changes.
 
+Page titles, descriptions, canonical URLs and social metadata are rendered by
+`src/layouts/BaseLayout.astro`. Set a descriptive `seoTitle` and `description`
+when adding a page, and keep `site` in `astro.config.mjs` set to the public URL.
+
 After building, run `node --test tests/agent-readiness.test.mjs` to check the
 production server and agent-facing endpoints locally.
 
