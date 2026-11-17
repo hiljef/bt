@@ -248,7 +248,7 @@ const events = [
 const eventYears = [...new Set(events.map((event) => event.year))].sort((a, b) => b - a);
 ---
 
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout pageTitle={pageTitle} description="Live performances by Organza Ray, Eleni Poulou, Hilary Jeffery and collaborators.">
   <div class="event-years" aria-label="Events by year">
     {eventYears.map((year) => (
       <section class="event-year" aria-labelledby={`events-${year}`}>

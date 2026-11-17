@@ -1,21 +1,89 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { homeMarkdown } from '../site-info';
 
 import { Image } from 'astro:assets';
 import fl2 from '../assets/fake_lake_2.jpg';
-import k19 from '../assets/K19_2.jpg';
 
-const pageTitle ="";
+export const prerender = false;
 
-const form = ["records", "tapes", "cds", "zines", "books", "digital", "websites"];
+const pageTitle = "";
+const link = '</index.md>; rel="alternate"; type="text/markdown", </llms.txt>; rel="describedby"; type="text/plain"';
+Astro.response.headers.set('Link', link);
+Astro.response.headers.set('Vary', 'Accept');
+const accept = (Astro.request.headers.get('accept') ?? '').split(',').map((item) => {
+  const [type, ...parameters] = item.trim().split(';');
+  const parameter = parameters.find((part) => /^\s*q\s*=/i.test(part));
+  const quality = parameter ? Number(parameter.split('=')[1]) : 1;
+  return { type: type.toLowerCase(), quality: Number.isFinite(quality) && quality >= 0 && quality <= 1 ? quality : 0 };
+});
+const markdownQuality = accept.find((item) => item.type === 'text/markdown')?.quality ?? 0;
+const htmlQuality = ['text/html', 'text/*', '*/*']
+  .map((type) => accept.find((item) => item.type === type)?.quality)
+  .find((quality) => quality !== undefined) ?? 0;
+const acceptedMarkdown = markdownQuality > 0 && markdownQuality >= htmlQuality;
+if (acceptedMarkdown) {
+  return new Response(homeMarkdown, {
+    headers: { 'Content-Type': 'text/markdown; charset=utf-8', 'Vary': 'Accept', 'Link': link },
+  });
+}
 
-const school = ["trombone", "trumpet", "euphonium", "poetry", "songwriting", "composition", "improvisation", "music theory", "arrangement"];
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://berlintune.com/#organization',
+      name: 'berlintune studio',
+      url: 'https://berlintune.com/',
+      description: 'Berlin-based music studio producing and publishing music and offering teaching.',
+      email: 'studio@berlintune.com',
+      address: { '@type': 'PostalAddress', addressLocality: 'Berlin', addressCountry: 'DE' },
+      sameAs: ['https://organzaray.bandcamp.com/'],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://berlintune.com/#website',
+      name: 'berlintune studio',
+      url: 'https://berlintune.com/',
+      publisher: { '@id': 'https://berlintune.com/#organization' },
+    },
+    {
+      '@type': 'MusicGroup',
+      name: 'Organza Ray',
+      url: 'https://organzaray.bandcamp.com/',
+      sameAs: ['https://organzaray.bandcamp.com/', 'https://instagram.com/organzaray', 'https://subvert.fm/or'],
+    },
+    {
+      '@type': 'MusicAlbum',
+      name: 'Fake Lake',
+      byArtist: { '@type': 'MusicGroup', name: 'Organza Ray' },
+      url: 'https://organzaray.bandcamp.com/album/fake-lake-ep',
+    },
+  ],
+};
 
 ---
 <BaseLayout pageTitle={pageTitle}>
+	 <script slot="head" type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+	 <link slot="head" rel="alternate" type="text/markdown" href="/index.md" />
 	 <div class="div2">
 		 <p><b>berlintune studio</b></p>
 	 </div>
+	 <script is:inline>
+	   if (navigator.modelContext) {
+	     navigator.modelContext.registerTool({
+	       name: 'get_site_information',
+	       description: 'Get an overview of berlintune studio and links to its pages.',
+	       inputSchema: { type: 'object', properties: {}, additionalProperties: false },
+	       execute: async () => {
+	         const response = await fetch('/index.md');
+	         if (!response.ok) throw new Error('Could not load site information');
+	         return { content: [{ type: 'text', text: await response.text() }] };
+	       },
+	     });
+	   }
+	 </script>
 	 <br>
 	 <div class="div3">
 		 <p>

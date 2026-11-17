@@ -5,15 +5,14 @@ import Footer from '../components/Footer.astro';
 
 import '../styles/global.css';
 
-const { pageTitle } = Astro.props;
+interface Props {
+  pageTitle: string;
+  description?: string;
+}
 
-const artist = {
-  hj: "hilary jeffery",
-  ep: "eleni poulou",
-  or: "organza ray",
-  };
-
-const form = ["records", "tapes", "cds", "zines", "books", "digital", "websites"];
+const { pageTitle, description = 'Berlin-based music studio producing and publishing music, and offering teaching and creative collaborations.' } = Astro.props;
+const title = pageTitle ? `${pageTitle} | berlintune studio` : 'berlintune studio | Music, publishing and teaching in Berlin';
+const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <html lang="en">
@@ -22,7 +21,10 @@ const form = ["records", "tapes", "cds", "zines", "books", "digital", "websites"
 		<link rel="icon" type="image/svg+xml" href="/favicon.png"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonical} />
+		<slot name="head" />
 	</head>
 	<body>
 		<div class="div1">

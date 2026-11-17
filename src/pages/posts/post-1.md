@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 title: 'berlintune news'
 pubDate: 2026
-description: 'update'
+description: 'An update from berlintune studio on music in progress and recordings.'
 author: 'the studio'
 tags: ["astro", "blog", "news", "berlintune"]
 ---
