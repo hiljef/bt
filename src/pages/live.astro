@@ -22,7 +22,7 @@ import cch1 from '../assets/cch_1.jpg';
 import ehe from '../assets/ehe.png';
 import orlogo1 from '../assets/or_logo_1.jpg';
 import kaserne3 from '../assets/kaserne_3.jpg';
-const pageTitle = 'live';
+const pageTitle = 'concerts';
 const events = [
   {
     year: 2026,
@@ -248,7 +248,7 @@ const events = [
 const eventYears = [...new Set(events.map((event) => event.year))].sort((a, b) => b - a);
 ---
 
-<BaseLayout pageTitle={pageTitle} seoTitle="Live Music and Events" description="Live performances by Organza Ray, Eleni Poulou, Hilary Jeffery and collaborators.">
+<BaseLayout pageTitle={pageTitle} seoTitle="Live Music and Concerts" description="Find live performances and event details for Organza Ray, Eleni Poulou, Hilary Jeffery and collaborators in Berlin and beyond.">
   <div class="event-years" aria-label="Events by year">
     {eventYears.map((year) => (
       <section class="event-year" aria-labelledby={`events-${year}`}>

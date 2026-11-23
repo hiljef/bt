@@ -4,6 +4,8 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 import '../styles/global.css';
+import { getImage } from 'astro:assets';
+import socialImageAsset from '../assets/fake_lake_2.jpg';
 
 interface Props {
   pageTitle: string;
@@ -15,6 +17,8 @@ const { pageTitle, seoTitle, description = 'Berlin-based music studio producing 
 const title = seoTitle ? `${seoTitle} | berlintune studio` : pageTitle ? `${pageTitle} | berlintune studio` : 'berlintune studio | Music, publishing and teaching in Berlin';
 const pathname = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
 const canonical = new URL(pathname, Astro.site);
+const socialImage = await getImage({ src: socialImageAsset, width: 1200, format: 'jpeg' });
+const socialImageUrl = new URL(socialImage.src, Astro.site);
 ---
 
 <html lang="en">
@@ -31,9 +35,14 @@ const canonical = new URL(pathname, Astro.site);
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:url" content={canonical} />
-		<meta name="twitter:card" content="summary" />
+		<meta property="og:image" content={socialImageUrl} />
+		<meta property="og:image:type" content="image/jpeg" />
+		<meta property="og:image:alt" content="Fake Lake by Organza Ray cover artwork" />
+		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={socialImageUrl} />
+		<meta name="twitter:image:alt" content="Fake Lake by Organza Ray cover artwork" />
 		<slot name="head" />
 	</head>
 	<body>

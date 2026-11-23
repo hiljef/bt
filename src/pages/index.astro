@@ -64,12 +64,19 @@ const structuredData = {
 };
 
 ---
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout
+  pageTitle={pageTitle}
+  seoTitle="Music Studio in Berlin"
+  description="Berlin-based studio run by Hilary Jeffery and Eleni Poulou, making music as Organza Ray and offering publishing, creative collaborations and music lessons."
+>
 	 <script slot="head" type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 	 <link slot="head" rel="alternate" type="text/markdown" href="/index.md" />
+   <br>
 	 <div class="div2">
 		 <h1>berlintune studio</h1>
-		 <p>Berlin-based music studio for producing, publishing, teaching and creative collaborations.</p>
+		 <p>music studio in Berlin<br>
+        composing, producing, publishing, teaching music
+    </p>
 	 </div>
 	 <script is:inline>
 	   if (navigator.modelContext) {

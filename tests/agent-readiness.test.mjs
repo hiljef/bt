@@ -42,7 +42,7 @@ test('discovery files, sitemap pages and metadata are served', async () => {
   const sitemap = await (await fetch(`${base}/sitemap.xml`)).text();
   const locations = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]);
   assert.deepEqual(locations.sort(), [
-    'https://berlintune.com/', 'https://berlintune.com/info/', 'https://berlintune.com/legal/',
+    'https://berlintune.com/', 'https://berlintune.com/credits/', 'https://berlintune.com/info/', 'https://berlintune.com/legal/',
     'https://berlintune.com/live/', 'https://berlintune.com/music/', 'https://berlintune.com/news/',
     'https://berlintune.com/posts/post-1/',
   ].sort());
@@ -67,13 +67,20 @@ test('pages expose consistent SEO metadata and meaningful headings', async () =>
     assert.ok(html.includes(`property="og:title" content="${title}"`));
     assert.ok(html.includes(`property="og:url" content="https://berlintune.com${path}"`));
     assert.match(html, /property="og:description" content="[^"]+"/);
-    assert.match(html, /name="twitter:card" content="summary"/);
+    assert.match(html, /name="twitter:card" content="summary_large_image"/);
   }
   assert.equal(titles.size, paths.length);
 
   const home = await (await fetch(base)).text();
+  assert.match(home, /<title>Music Studio in Berlin \| berlintune studio<\/title>/);
+  assert.match(home, /<meta name="description" content="Berlin-based studio run by Hilary Jeffery and Eleni Poulou/);
   assert.match(home, /<h1[^>]*>berlintune studio<\/h1>/);
   assert.match(home, /alt="Fake Lake by Organza Ray cover artwork"/);
+  const socialImageUrl = home.match(/<meta property="og:image" content="([^"]+)"/)[1];
+  assert.match(home, /property="og:image:alt" content="Fake Lake by Organza Ray cover artwork"/);
+  assert.match(home, /name="twitter:image" content="[^"]+"/);
+  const socialImage = new URL(socialImageUrl);
+  assert.equal((await fetch(new URL(`${socialImage.pathname}${socialImage.search}`, base))).status, 200);
   const music = await (await fetch(`${base}/music`)).text();
   assert.match(music, /rel="canonical" href="https:\/\/berlintune\.com\/music\/"/);
   const live = await (await fetch(`${base}/live/`)).text();
