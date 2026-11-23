@@ -3,7 +3,7 @@ layout: ../../layouts/MarkdownPostLayout.astro
 title: 'music in progress'
 seoTitle: 'music in Progress'
 pubDate: 2026
-description: 'An update from berlintune studio on music in progress and recordings.'
+description: 'update'
 author: 'the studio'
 tags: ["astro", "blog", "news", "berlintune"]
 ---
